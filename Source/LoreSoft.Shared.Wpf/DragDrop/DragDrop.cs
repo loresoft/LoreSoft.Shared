@@ -1,0 +1,428 @@
+﻿using System;
+using System.Collections;
+using System.Linq;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Input;
+using System.Windows.Media;
+using LoreSoft.Shared.Extensions;
+
+namespace LoreSoft.Shared.DragDrop
+{
+  public static class DragDrop
+  {
+    private static IDragSource _defaultDragHandler;
+    private static IDropTarget _defaultDropHandler;
+    private static DragAdorner _dragAdorner;
+    private static DragInfo _dragInfo;
+    private static bool _dragInProgress;
+    private static DropTargetAdorner _dropTargetAdorner;
+    private static object _clickSupressItem;
+
+    #region DragAdornerTemplate
+    public static readonly DependencyProperty DragAdornerTemplateProperty =
+      DependencyProperty.RegisterAttached("DragAdornerTemplate", typeof(DataTemplate), typeof(DragDrop));
+
+    public static DataTemplate GetDragAdornerTemplate(UIElement target)
+    {
+      return (DataTemplate)target.GetValue(DragAdornerTemplateProperty);
+    }
+
+    public static void SetDragAdornerTemplate(UIElement target, DataTemplate value)
+    {
+      target.SetValue(DragAdornerTemplateProperty, value);
+    }
+    #endregion
+
+    #region IsDragSource
+    public static readonly DependencyProperty IsDragSourceProperty =
+      DependencyProperty.RegisterAttached("IsDragSource", typeof(bool), typeof(DragDrop),
+          new UIPropertyMetadata(false, IsDragSourceChanged));
+
+    public static bool GetIsDragSource(UIElement target)
+    {
+      return (bool)target.GetValue(IsDragSourceProperty);
+    }
+
+    public static void SetIsDragSource(UIElement target, bool value)
+    {
+      target.SetValue(IsDragSourceProperty, value);
+    }
+
+    private static void IsDragSourceChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    {
+      var uiElement = (UIElement)d;
+
+      if ((bool)e.NewValue)
+      {
+        uiElement.PreviewMouseLeftButtonDown += DragSource_PreviewMouseLeftButtonDown;
+        uiElement.PreviewMouseLeftButtonUp += DragSource_PreviewMouseLeftButtonUp;
+        uiElement.PreviewMouseMove += DragSource_PreviewMouseMove;
+      }
+      else
+      {
+        uiElement.PreviewMouseLeftButtonDown -= DragSource_PreviewMouseLeftButtonDown;
+        uiElement.PreviewMouseLeftButtonUp -= DragSource_PreviewMouseLeftButtonUp;
+        uiElement.PreviewMouseMove -= DragSource_PreviewMouseMove;
+      }
+    }
+    #endregion
+
+    #region IsDropTarget
+    public static readonly DependencyProperty IsDropTargetProperty =
+      DependencyProperty.RegisterAttached("IsDropTarget", typeof(bool), typeof(DragDrop),
+          new UIPropertyMetadata(false, IsDropTargetChanged));
+
+    public static bool GetIsDropTarget(UIElement target)
+    {
+      return (bool)target.GetValue(IsDropTargetProperty);
+    }
+
+    public static void SetIsDropTarget(UIElement target, bool value)
+    {
+      target.SetValue(IsDropTargetProperty, value);
+    }
+
+    private static void IsDropTargetChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    {
+      var uiElement = (UIElement)d;
+
+      if ((bool)e.NewValue)
+      {
+        uiElement.AllowDrop = true;
+        uiElement.PreviewDragEnter += DropTarget_PreviewDragEnter;
+        uiElement.PreviewDragLeave += DropTarget_PreviewDragLeave;
+        uiElement.PreviewDragOver += DropTarget_PreviewDragOver;
+        uiElement.PreviewDrop += DropTarget_PreviewDrop;
+      }
+      else
+      {
+        uiElement.AllowDrop = false;
+        uiElement.PreviewDragEnter -= DropTarget_PreviewDragEnter;
+        uiElement.PreviewDragLeave -= DropTarget_PreviewDragLeave;
+        uiElement.PreviewDragOver -= DropTarget_PreviewDragOver;
+        uiElement.PreviewDrop -= DropTarget_PreviewDrop;
+      }
+    }
+    #endregion
+
+    #region DragHandler
+    public static readonly DependencyProperty DragHandlerProperty =
+      DependencyProperty.RegisterAttached("DragHandler", typeof(IDragSource), typeof(DragDrop));
+
+    public static IDragSource GetDragHandler(UIElement target)
+    {
+      return (IDragSource)target.GetValue(DragHandlerProperty);
+    }
+
+    public static void SetDragHandler(UIElement target, IDragSource value)
+    {
+      target.SetValue(DragHandlerProperty, value);
+    }
+    #endregion
+
+    #region DropHandler
+    public static readonly DependencyProperty DropHandlerProperty =
+      DependencyProperty.RegisterAttached("DropHandler", typeof(IDropTarget), typeof(DragDrop));
+
+    public static IDropTarget GetDropHandler(UIElement target)
+    {
+      return (IDropTarget)target.GetValue(DropHandlerProperty);
+    }
+
+    public static void SetDropHandler(UIElement target, IDropTarget value)
+    {
+      target.SetValue(DropHandlerProperty, value);
+    }
+    #endregion
+
+    public static readonly DataFormat DataFormat = DataFormats.GetDataFormat("DragDrop");
+
+    public static IDragSource DefaultDragHandler
+    {
+      get { return _defaultDragHandler ?? (_defaultDragHandler = new DefaultDragHandler()); }
+      set { _defaultDragHandler = value; }
+    }
+
+    public static IDropTarget DefaultDropHandler
+    {
+      get { return _defaultDropHandler ?? (_defaultDropHandler = new DefaultDropHandler()); }
+      set { _defaultDropHandler = value; }
+    }
+
+    private static DragAdorner DragAdorner
+    {
+      get { return _dragAdorner; }
+      set
+      {
+        if (_dragAdorner != null)
+          _dragAdorner.Detatch();
+
+        _dragAdorner = value;
+      }
+    }
+
+    private static DropTargetAdorner DropTargetAdorner
+    {
+      get { return _dropTargetAdorner; }
+      set
+      {
+        if (_dropTargetAdorner != null)
+          _dropTargetAdorner.Detatch();
+
+        _dropTargetAdorner = value;
+      }
+    }
+
+    private static void CreateDragAdorner()
+    {
+      DataTemplate template = GetDragAdornerTemplate(_dragInfo.VisualSource);
+
+      if (template == null)
+        return;
+
+      var parentWindow = _dragInfo.VisualSource.GetVisualAncestor<Window>();
+      UIElement rootElement = null;
+      UIElement adornment = null;
+
+      if (parentWindow != null)
+        rootElement = parentWindow.Content as UIElement;
+      if (rootElement == null)
+        rootElement = (UIElement)Application.Current.MainWindow.Content;
+
+      if (_dragInfo.Data is IEnumerable && !(_dragInfo.Data is string))
+      {
+        if (((IEnumerable)_dragInfo.Data).Cast<object>().Count() <= 10)
+        {
+          var itemsControl = new ItemsControl();
+          itemsControl.ItemsSource = (IEnumerable)_dragInfo.Data;
+          itemsControl.ItemTemplate = template;
+
+          var border = new Border();
+          border.Child = itemsControl;
+          adornment = border;
+        }
+      }
+      else
+      {
+        var contentPresenter = new ContentPresenter();
+        contentPresenter.Content = _dragInfo.Data;
+        contentPresenter.ContentTemplate = template;
+        adornment = contentPresenter;
+      }
+
+      if (adornment == null)
+        return;
+
+      adornment.Opacity = 0.5;
+      DragAdorner = new DragAdorner(rootElement, adornment);
+    }
+
+    private static bool HitTestScrollBar(object sender, MouseButtonEventArgs e)
+    {
+      HitTestResult hit = VisualTreeHelper.HitTest((Visual)sender, e.GetPosition((IInputElement)sender));
+      return hit.VisualHit.GetVisualAncestor<System.Windows.Controls.Primitives.ScrollBar>() != null;
+    }
+
+    private static void Scroll(DependencyObject o, DragEventArgs e)
+    {
+      ScrollViewer scrollViewer = o.GetVisualDescendant<ScrollViewer>();
+
+      if (scrollViewer == null)
+        return;
+
+      Point position = e.GetPosition(scrollViewer);
+      double scrollMargin = Math.Min(scrollViewer.FontSize * 2, scrollViewer.ActualHeight / 2);
+
+      if (position.X >= scrollViewer.ActualWidth - scrollMargin &&
+          scrollViewer.HorizontalOffset < scrollViewer.ExtentWidth - scrollViewer.ViewportWidth)
+      {
+        scrollViewer.LineRight();
+      }
+      else if (position.X < scrollMargin && scrollViewer.HorizontalOffset > 0)
+      {
+        scrollViewer.LineLeft();
+      }
+      else if (position.Y >= scrollViewer.ActualHeight - scrollMargin &&
+               scrollViewer.VerticalOffset < scrollViewer.ExtentHeight - scrollViewer.ViewportHeight)
+      {
+        scrollViewer.LineDown();
+      }
+      else if (position.Y < scrollMargin && scrollViewer.VerticalOffset > 0)
+      {
+        scrollViewer.LineUp();
+      }
+    }
+
+    private static void DragSource_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+    {
+      // Ignore the click if the user has clicked on a scrollbar.
+      if (HitTestScrollBar(sender, e))
+      {
+        _dragInfo = null;
+        return;
+      }
+
+      _dragInfo = new DragInfo(sender, e);
+
+      // If the sender is a list box that allows multiple selections, ensure that clicking on an 
+      // already selected item does not change the selection, otherwise dragging multiple items 
+      // is made impossible.
+      var itemsControl = sender as ItemsControl;
+
+      if (_dragInfo.VisualSourceItem == null || itemsControl == null || !itemsControl.CanSelectMultipleItems())
+        return;
+
+      var selectedItems = itemsControl
+        .GetSelectedItems()
+        .Cast<object>()
+        .ToList();
+
+      if (selectedItems.Count() <= 1 || !selectedItems.Contains(_dragInfo.SourceItem))
+        return;
+
+      _clickSupressItem = _dragInfo.SourceItem;
+      e.Handled = true;
+    }
+
+    private static void DragSource_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+    {
+      // If we prevented the control's default selection handling in DragSource_PreviewMouseLeftButtonDown
+      // by setting 'e.Handled = true' and a drag was not initiated, manually set the selection here.
+      var itemsControl = sender as ItemsControl;
+
+      if (itemsControl != null && _dragInfo != null && _clickSupressItem == _dragInfo.SourceItem)
+      {
+        if ((Keyboard.Modifiers & ModifierKeys.Control) != 0)
+          itemsControl.SetItemSelected(_dragInfo.SourceItem, false);
+        else
+          itemsControl.SetSelectedItem(_dragInfo.SourceItem);
+      }
+
+      _dragInfo = null;
+      _clickSupressItem = null;
+    }
+
+    private static void DragSource_PreviewMouseMove(object sender, MouseEventArgs e)
+    {
+      if (_dragInfo == null || _dragInProgress)
+        return;
+      
+      Point dragStart = _dragInfo.DragStartPosition;
+      Point position = e.GetPosition(null);
+
+      if (Math.Abs(position.X - dragStart.X) <= SystemParameters.MinimumHorizontalDragDistance &&
+          Math.Abs(position.Y - dragStart.Y) <= SystemParameters.MinimumVerticalDragDistance)
+        return;
+      
+      IDragSource dragHandler = GetDragHandler(_dragInfo.VisualSource);
+
+      if (dragHandler != null)
+        dragHandler.StartDrag(_dragInfo);
+      else
+        DefaultDragHandler.StartDrag(_dragInfo);
+
+      if (_dragInfo.Effects == DragDropEffects.None || _dragInfo.Data == null)
+        return;
+
+      var data = new DataObject(DataFormat.Name, _dragInfo.Data);
+
+      try
+      {
+        _dragInProgress = true;
+        System.Windows.DragDrop.DoDragDrop(_dragInfo.VisualSource, data, _dragInfo.Effects);
+      }
+      finally
+      {
+        _dragInProgress = false;
+      }
+
+      _dragInfo = null;
+    }
+
+    private static void DropTarget_PreviewDragEnter(object sender, DragEventArgs e)
+    {
+      DropTarget_PreviewDragOver(sender, e);
+    }
+
+    private static void DropTarget_PreviewDragLeave(object sender, DragEventArgs e)
+    {
+      DragAdorner = null;
+      DropTargetAdorner = null;
+    }
+
+    private static void DropTarget_PreviewDragOver(object sender, DragEventArgs e)
+    {
+      var itemsControl = sender as ItemsControl;
+      var dropInfo = new DropInfo(sender, e, _dragInfo);
+      IDropTarget dropHandler = GetDropHandler((UIElement)sender);
+
+      if (dropHandler != null)
+        dropHandler.DragOver(dropInfo);
+      else
+        DefaultDropHandler.DragOver(dropInfo);
+
+      // Update the drag adorner.
+      if (dropInfo.Effects != DragDropEffects.None)
+      {
+        if (DragAdorner == null && _dragInfo != null)
+        {
+          CreateDragAdorner();
+        }
+
+        if (DragAdorner != null)
+        {
+          DragAdorner.MousePosition = e.GetPosition(DragAdorner.AdornedElement);
+          DragAdorner.InvalidateVisual();
+        }
+      }
+      else
+      {
+        DragAdorner = null;
+      }
+
+      // If the target is an ItemsControl then update the drop target adorner.
+      if (itemsControl != null)
+      {
+        // Display the adorner in the control's ItemsPresenter. If there is no 
+        // ItemsPresenter provided by the style, try getting hold of a
+        // ScrollContentPresenter and using that.
+        UIElement adornedElement =
+            (UIElement)itemsControl.GetVisualDescendant<ItemsPresenter>() ??
+            (UIElement)itemsControl.GetVisualDescendant<ScrollContentPresenter>();
+
+        if (adornedElement != null)
+        {
+          if (dropInfo.DropTargetAdorner == null)
+            DropTargetAdorner = null;
+          else if (!dropInfo.DropTargetAdorner.IsInstanceOfType(DropTargetAdorner))
+            DropTargetAdorner = DropTargetAdorner.Create(dropInfo.DropTargetAdorner, adornedElement);
+
+          if (DropTargetAdorner != null)
+          {
+            DropTargetAdorner.DropInfo = dropInfo;
+            DropTargetAdorner.InvalidateVisual();
+          }
+        }
+      }
+
+      e.Effects = dropInfo.Effects;
+      e.Handled = true;
+
+      Scroll((DependencyObject)sender, e);
+    }
+
+    private static void DropTarget_PreviewDrop(object sender, DragEventArgs e)
+    {
+      var dropInfo = new DropInfo(sender, e, _dragInfo);
+      IDropTarget dropHandler = GetDropHandler((UIElement)sender) ?? DefaultDropHandler;
+      IDragSource dragHandler = GetDragHandler((UIElement)sender) ?? DefaultDragHandler;
+
+      DragAdorner = null;
+      DropTargetAdorner = null;
+      dropHandler.Drop(dropInfo);
+      dragHandler.Dropped(dropInfo);
+      e.Handled = true;
+    }
+  }
+}

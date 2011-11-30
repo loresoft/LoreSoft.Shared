@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{83713701-E57E-4A2E-968A-CE7B0FD7A8FB}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LoreSoft.Shared.Tests</RootNamespace>
+    <AssemblyName>LoreSoft.Shared.Tests</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.XML" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <CodeAnalysisDependentAssemblyPaths Condition=" '$(VS100COMNTOOLS)' != '' " Include="$(VS100COMNTOOLS)..\IDE\PrivateAssemblies">
+      <Visible>False</Visible>
+    </CodeAnalysisDependentAssemblyPaths>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Caching\CacheItemTest.cs" />
+    <Compile Include="Caching\CacheManagerTest.cs" />
+    <Compile Include="CollectionChangedTracker.cs" />
+    <Compile Include="Commands\RelayCommandTests.cs" />
+    <Compile Include="ComponentModel\ErrorsContainerTest.cs" />
+    <Compile Include="ComponentModel\NotificationBaseTest.cs" />
+    <Compile Include="ComponentModel\ValidationBaseTest.cs" />
+    <Compile Include="ConfigurationDictionaryTest.cs" />
+    <Compile Include="ExceptionAssert.cs" />
+    <Compile Include="Extensions\DateTimeTests.cs" />
+    <Compile Include="Extensions\StringExtensionsTest.cs" />
+    <Compile Include="Extensions\TimeSpanTests.cs" />
+    <Compile Include="IO\PathHelperTests.cs" />
+    <Compile Include="Messaging\MessengerTests.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PropertyChangeTracker.cs" />
+    <Compile Include="Reflection\AccessWrapperTest.cs" />
+    <Compile Include="Reflection\DelegateFactoryTest.cs" />
+    <Compile Include="Reflection\ReflectionHelperTest.cs" />
+    <Compile Include="Security\PasswordGeneratorTest.cs" />
+    <Compile Include="Security\SaltedHashBuilderTest.cs" />
+    <Compile Include="ShortGuidTest.cs" />
+    <Compile Include="Text\BaseConvertTest.cs" />
+    <Compile Include="Text\NameFormatterTest.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Test References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LoreSoft.Shared\LoreSoft.Shared.csproj">
+      <Project>{E910A170-601B-4E86-B70C-04E3B408DD4A}</Project>
+      <Name>LoreSoft.Shared</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LoreSoft.Shared.Wpf\LoreSoft.Shared.Wpf.csproj">
+      <Project>{F0DA618E-5DA1-46F4-8C1D-242D8FB3CD11}</Project>
+      <Name>LoreSoft.Shared.Wpf</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

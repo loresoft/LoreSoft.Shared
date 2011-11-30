@@ -1,0 +1,489 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{EC5B57D8-0F16-4262-A146-E66444361607}</ProjectGuid>
+    <ProjectTypeGuids>{A1591282-1198-4647-A2B1-27E5FF5F6F3B};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LoreSoft.Shared</RootNamespace>
+    <AssemblyName>LoreSoft.Shared.Silverlight</AssemblyName>
+    <TargetFrameworkIdentifier>Silverlight</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
+    <SilverlightApplication>false</SilverlightApplication>
+    <ValidateXaml>true</ValidateXaml>
+    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <!-- This property group is only here to support building this project using the 
+       MSBuild 3.5 toolset. In order to work correctly with this older toolset, it needs 
+       to set the TargetFrameworkVersion to v3.5 -->
+  <PropertyGroup Condition="'$(MSBuildToolsVersion)' == '3.5'">
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Expression.Interactions, Version=4.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="mscorlib" />
+    <Reference Include="System.ComponentModel.DataAnnotations, Version=2.0.5.0, Culture=neutral, PublicKeyToken=ddd0da4d3e678217, processorArchitecture=MSIL" />
+    <Reference Include="System.Numerics, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Windows" />
+    <Reference Include="system" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Controls, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Data, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Input, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Navigation, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Interactivity, Version=4.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Windows.Browser" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\LoreSoft.Shared\Caching\CacheItem.cs">
+      <Link>Caching\CacheItem.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared\Caching\CacheManager.cs">
+      <Link>Caching\CacheManager.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared\Caching\CachePolicy.cs">
+      <Link>Caching\CachePolicy.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared\Collections\MultiDictionary.cs">
+      <Link>Collections\MultiDictionary.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared\Collections\ObservableList.cs">
+      <Link>Collections\ObservableList.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared\Collections\PagedList.cs">
+      <Link>Collections\PagedList.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared\Collections\PagingExtensions.cs">
+      <Link>Collections\PagingExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared\Collections\WeakCollection.cs">
+      <Link>Collections\WeakCollection.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared\Collections\WeakDictionary.cs">
+      <Link>Collections\WeakDictionary.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared\ComponentModel\DataAnnotations\CompareAttribute.cs">
+      <Link>ComponentModel\DataAnnotations\CompareAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared\ComponentModel\DataAnnotations\CreditCardAttribute.cs">
+      <Link>ComponentModel\DataAnnotations\CreditCardAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared\ComponentModel\DataAnnotations\EmailAddressAttribute.cs">
+      <Link>ComponentModel\DataAnnotations\EmailAddressAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared\ComponentModel\DataAnnotations\EmailAddressValidator.cs">
+      <Link>ComponentModel\DataAnnotations\EmailAddressValidator.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared\ComponentModel\DataAnnotations\PhoneNumberAttribute.cs">
+      <Link>ComponentModel\DataAnnotations\PhoneNumberAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared\ComponentModel\DisposableBase.cs">
+      <Link>ComponentModel\DisposableBase.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared\ComponentModel\ErrorsContainer.cs">
+      <Link>ComponentModel\ErrorsContainer.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared\ComponentModel\NotificationBase.cs">
+      <Link>ComponentModel\NotificationBase.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared\ComponentModel\PipelineActionBase.cs">
+      <Link>ComponentModel\PipelineActionBase.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared\ComponentModel\PipelineBase.cs">
+      <Link>ComponentModel\PipelineBase.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared\ComponentModel\PipelineContextBase.cs">
+      <Link>ComponentModel\PipelineContextBase.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared\ComponentModel\SingletonBase.cs">
+      <Link>ComponentModel\SingletonBase.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared\ComponentModel\TokenBase.cs">
+      <Link>ComponentModel\TokenBase.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared\ComponentModel\ValidationBase.cs">
+      <Link>ComponentModel\ValidationBase.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared\Configuration\ConfigurationDictionary.cs">
+      <Link>Configuration\ConfigurationDictionary.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared\Configuration\DynamicSettings.cs">
+      <Link>Configuration\DynamicSettings.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared\Diagnostics\ILogEvent.cs">
+      <Link>Diagnostics\ILogEvent.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared\Diagnostics\ILogger.cs">
+      <Link>Diagnostics\ILogger.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared\Diagnostics\Logger.cs">
+      <Link>Diagnostics\Logger.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared\Diagnostics\LogLevel.cs">
+      <Link>Diagnostics\LogLevel.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared\EnumItem.cs">
+      <Link>EnumItem.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared\Extensions\CollectionExtensions.cs">
+      <Link>Extensions\CollectionExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared\Extensions\DateTimeExtensions.cs">
+      <Link>Extensions\DateTimeExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared\Extensions\DictionaryExtensions.cs">
+      <Link>Extensions\DictionaryExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared\Extensions\EnumerableExtensions.cs">
+      <Link>Extensions\EnumerableExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared\Extensions\EnumExtensions.cs">
+      <Link>Extensions\EnumExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared\Extensions\ExceptionExtensions.cs">
+      <Link>Extensions\ExceptionExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared\Extensions\GuidExtensions.cs">
+      <Link>Extensions\GuidExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared\Extensions\HashExtensions.cs">
+      <Link>Extensions\HashExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared\Extensions\NumberExtensions.cs">
+      <Link>Extensions\NumberExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared\Extensions\StringExtensions.cs">
+      <Link>Extensions\StringExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared\Extensions\TimeSpanExtensions.cs">
+      <Link>Extensions\TimeSpanExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared\Extensions\TypeExtensions.cs">
+      <Link>Extensions\TypeExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared\IO\PathHelper.cs">
+      <Link>IO\PathHelper.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared\IO\StringEncodedWriter.cs">
+      <Link>IO\StringEncodedWriter.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared\Messaging\GenericMessage.cs">
+      <Link>Messaging\GenericMessage.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared\Messaging\IMessenger.cs">
+      <Link>Messaging\IMessenger.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared\Messaging\Message.cs">
+      <Link>Messaging\Message.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared\Messaging\Messenger.cs">
+      <Link>Messaging\Messenger.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared\Messaging\PropertyChangedMessage.cs">
+      <Link>Messaging\PropertyChangedMessage.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared\Messaging\Subscription.cs">
+      <Link>Messaging\Subscription.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared\Messaging\SubscriptionToken.cs">
+      <Link>Messaging\SubscriptionToken.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared\Messaging\WeakAction.cs">
+      <Link>Messaging\WeakAction.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared\Reflection\AccessProxy.cs">
+      <Link>Reflection\AccessProxy.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared\Reflection\DelegateFactory.cs">
+      <Link>Reflection\DelegateFactory.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared\Reflection\FieldAccessor.cs">
+      <Link>Reflection\FieldAccessor.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared\Reflection\ILGeneratorExtensions.cs">
+      <Link>Reflection\ILGeneratorExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared\Reflection\IMemberAccessor.cs">
+      <Link>Reflection\IMemberAccessor.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared\Reflection\IMemberInfo.cs">
+      <Link>Reflection\IMemberInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared\Reflection\IMethodAccessor.cs">
+      <Link>Reflection\IMethodAccessor.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared\Reflection\LateBinder.cs">
+      <Link>Reflection\LateBinder.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared\Reflection\MemberAccessor.cs">
+      <Link>Reflection\MemberAccessor.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared\Reflection\MethodAccessor.cs">
+      <Link>Reflection\MethodAccessor.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared\Reflection\ObjectCloner.cs">
+      <Link>Reflection\ObjectCloner.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared\Reflection\ObjectCopier.cs">
+      <Link>Reflection\ObjectCopier.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared\Reflection\PropertyAccessor.cs">
+      <Link>Reflection\PropertyAccessor.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared\Reflection\ReflectionHelper.cs">
+      <Link>Reflection\ReflectionHelper.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared\Reflection\TypeAccessor.cs">
+      <Link>Reflection\TypeAccessor.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared\Security\Encryptor.cs">
+      <Link>Security\Encryptor.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared\Security\HashBuilder.cs">
+      <Link>Security\HashBuilder.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared\Security\PasswordGenerator.cs">
+      <Link>Security\PasswordGenerator.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared\Security\SaltedHashBuilder.cs">
+      <Link>Security\SaltedHashBuilder.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared\ShortGuid.cs">
+      <Link>ShortGuid.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared\Text\BaseConvert.cs">
+      <Link>Text\BaseConvert.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared\Text\NameFormatter.cs">
+      <Link>Text\NameFormatter.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared\Threading\BusyMonitor.cs">
+      <Link>Threading\BusyMonitor.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared\Threading\DelayedAction.cs">
+      <Link>Threading\DelayedAction.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared\Threading\Synchronized.cs">
+      <Link>Threading\Synchronized.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared\UriParsingHelper.cs">
+      <Link>UriParsingHelper.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared\UriQuery.cs">
+      <Link>UriQuery.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared.Wpf\Command\RelayCommand.cs">
+      <Link>Command\RelayCommand.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared.Wpf\Command\RelayCommandGeneric.cs">
+      <Link>Command\RelayCommandGeneric.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared.Wpf\Controls\BindingEvaluator.cs">
+      <Link>Controls\BindingEvaluator.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared.Wpf\Controls\BindingUpdateBehavior.cs">
+      <Link>Controls\BindingUpdateBehavior.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared.Wpf\Controls\BooleanColorConverter.cs">
+      <Link>Controls\BooleanColorConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared.Wpf\Controls\DataGridColumnsBehavior.cs">
+      <Link>Controls\DataGridColumnsBehavior.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared.Wpf\Controls\DataGridSelectedItemsBehavior.cs">
+      <Link>Controls\DataGridSelectedItemsBehavior.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared.Wpf\Controls\DataGridSynchronizeColumnsBehavior.cs">
+      <Link>Controls\DataGridSynchronizeColumnsBehavior.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared.Wpf\Controls\DisposeDataContextBehaviour.cs">
+      <Link>Controls\DisposeDataContextBehaviour.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared.Wpf\Controls\EnumBooleanConverter.cs">
+      <Link>Controls\EnumBooleanConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared.Wpf\Controls\EnumItemConverter.cs">
+      <Link>Controls\EnumItemConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared.Wpf\Controls\EnumItemListConverter.cs">
+      <Link>Controls\EnumItemListConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared.Wpf\Controls\EnumVisibilityConverter.cs">
+      <Link>Controls\EnumVisibilityConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared.Wpf\Controls\FilterBehavior.cs">
+      <Link>Controls\FilterBehavior.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared.Wpf\Controls\IWindow.cs">
+      <Link>Controls\IWindow.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared.Wpf\Controls\IWindowViewModel.cs">
+      <Link>Controls\IWindowViewModel.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared.Wpf\Controls\LabelBehaviour.cs">
+      <Link>Controls\LabelBehaviour.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared.Wpf\Controls\ListBoxBehavior.cs">
+      <Link>Controls\ListBoxBehavior.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared.Wpf\Controls\Notification.cs">
+      <Link>Controls\Notification.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared.Wpf\Controls\NotificationManager.cs">
+      <Link>Controls\NotificationManager.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared.Wpf\Controls\Notifications.cs">
+      <Link>Controls\Notifications.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared.Wpf\Controls\NumericConverter.cs">
+      <Link>Controls\NumericConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared.Wpf\Controls\NumericTextBox.cs">
+      <Link>Controls\NumericTextBox.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared.Wpf\Controls\PopupContent.cs">
+      <Link>Controls\PopupContent.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared.Wpf\Controls\RotateBehavior.cs">
+      <Link>Controls\RotateBehavior.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared.Wpf\Controls\RotateContentControl.cs">
+      <Link>Controls\RotateContentControl.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared.Wpf\Controls\TrimmingToolTipBehavior.cs">
+      <Link>Controls\TrimmingToolTipBehavior.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared.Wpf\Controls\VisibilityConverter.cs">
+      <Link>Controls\VisibilityConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared.Wpf\Controls\WeakEventListener.cs">
+      <Link>Controls\WeakEventListener.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared.Wpf\Controls\YesNoConverter.cs">
+      <Link>Controls\YesNoConverter.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared.Wpf\Extensions\DispatcherExtensions.cs">
+      <Link>Extensions\DispatcherExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared.Wpf\Extensions\VisualTreeExtensions.cs">
+      <Link>Extensions\VisualTreeExtensions.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared.Wpf\Messaging\DialogMessage.cs">
+      <Link>Messaging\DialogMessage.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared.Wpf\Messaging\MessageAction.cs">
+      <Link>Messaging\MessageAction.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared.Wpf\Messaging\MessageSubscriber.cs">
+      <Link>Messaging\MessageSubscriber.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared.Wpf\Messaging\NotificationMessage.cs">
+      <Link>Messaging\NotificationMessage.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared.Wpf\Messaging\WindowMessage.cs">
+      <Link>Messaging\WindowMessage.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared.Wpf\Navigation\INavigationService.cs">
+      <Link>Navigation\INavigationService.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared.Wpf\Navigation\NavigationService.cs">
+      <Link>Navigation\NavigationService.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared.Wpf\Navigation\NavigationServiceBehavior.cs">
+      <Link>Navigation\NavigationServiceBehavior.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared.Wpf\Services\ServiceBase.cs">
+      <Link>Services\ServiceBase.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared.Wpf\Threading\DisplayContext.cs">
+      <Link>Threading\DisplayContext.cs</Link>
+    </Compile>
+    <Compile Include="Collections\ConcurrentDictionary.cs" />
+    <Compile Include="Controls\ChildWindow.cs" />
+    <Compile Include="Controls\DataGridColumnBehavior.cs" />
+    <Compile Include="Controls\DefaultButtonBehavior.cs" />
+    <Compile Include="Controls\FocusBehavior.cs" />
+    <Compile Include="Controls\GroupBox.cs" />
+    <Compile Include="Controls\KeystrokeCommandTrigger.cs" />
+    <Compile Include="Controls\RichTextBoxBehavior.cs" />
+    <Compile Include="Diagnostics\StopWatch.cs" />
+    <Compile Include="Navigation\Allow.cs" />
+    <Compile Include="Navigation\AuthorizationContentLoader.cs" />
+    <Compile Include="Navigation\AuthorizationRule.cs" />
+    <Compile Include="Navigation\CannotLoadException.cs" />
+    <Compile Include="Navigation\ContentLoaderAsyncResult.cs" />
+    <Compile Include="Navigation\ContentLoaderBase.cs" />
+    <Compile Include="Navigation\Deny.cs" />
+    <Compile Include="Navigation\ErrorContentLoaderConverter.cs" />
+    <Compile Include="Navigation\ErrorPage.cs" />
+    <Compile Include="Navigation\ErrorPageLoader.cs" />
+    <Compile Include="Navigation\ErrorRedirector.cs" />
+    <Compile Include="Navigation\IAuthorizationRulePart.cs" />
+    <Compile Include="Navigation\IErrorPage.cs" />
+    <Compile Include="Navigation\INavigationAuthorizer.cs" />
+    <Compile Include="Navigation\InvalidContentException.cs" />
+    <Compile Include="Navigation\LoaderBase.cs" />
+    <Compile Include="Navigation\NavigationAuthorizer.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Page Include="Themes\generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{A1591282-1198-4647-A2B1-27E5FF5F6F3B}">
+        <SilverlightProjectProperties />
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

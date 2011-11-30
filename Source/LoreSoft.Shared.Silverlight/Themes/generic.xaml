@@ -1,0 +1,381 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
+                    xmlns:local="clr-namespace:LoreSoft.Shared.Controls"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib">
+
+  <Style TargetType="local:Notifications">
+    <Setter Property="Template">
+      <Setter.Value>
+        <ControlTemplate TargetType="local:Notifications">
+          <StackPanel VerticalAlignment="Top">
+            <Border Height="32"
+                    BorderBrush="#b4a555"
+                    BorderThickness="0,0,1,1">
+              <Grid>
+                <Grid.Resources>
+
+                  <ControlTemplate x:Key="PreviousButtonTemplate"
+                                   TargetType="Button">
+                    <Grid Cursor="Hand">
+                      <VisualStateManager.VisualStateGroups>
+                        <VisualStateGroup x:Name="CommonStates">
+                          <VisualState x:Name="Normal" />
+                          <VisualState x:Name="MouseOver">
+                            <Storyboard>
+                              <ColorAnimation Duration="0"
+                                              Storyboard.TargetName="IconPath"
+                                              Storyboard.TargetProperty="(Path.Fill).(SolidColorBrush.Color)"
+                                              To="#FF73A9D8" />
+                            </Storyboard>
+                          </VisualState>
+                          <VisualState x:Name="Disabled">
+                            <Storyboard>
+                              <DoubleAnimation Duration="0"
+                                               Storyboard.TargetName="IconPath"
+                                               Storyboard.TargetProperty="(Path.Fill).(SolidColorBrush.Opacity)"
+                                               To=".2" />
+                            </Storyboard>
+                          </VisualState>
+                        </VisualStateGroup>
+                      </VisualStateManager.VisualStateGroups>
+
+                      <Rectangle Fill="#11E5EBF1"
+                                 Opacity="1"
+                                 Stretch="Fill" />
+                      <Grid>
+                        <Path x:Name="IconPath"
+                              Width="6"
+                              Height="10"
+                              Margin="3"
+                              HorizontalAlignment="Center"
+                              VerticalAlignment="Center"
+                              Data="M288.75,232.25 L288.75,240.625 L283,236.625 z"
+                              Fill="#FF7B7878"
+                              Stretch="Fill" />
+                      </Grid>
+                    </Grid>
+                  </ControlTemplate>
+
+                  <ControlTemplate x:Key="NextButtonTemplate"
+                                   TargetType="Button">
+                    <Grid Cursor="Hand">
+                      <VisualStateManager.VisualStateGroups>
+                        <VisualStateGroup x:Name="CommonStates">
+                          <VisualState x:Name="Normal" />
+                          <VisualState x:Name="MouseOver">
+                            <Storyboard>
+                              <ColorAnimation Duration="0"
+                                              Storyboard.TargetName="IconPath"
+                                              Storyboard.TargetProperty="(Path.Fill).(SolidColorBrush.Color)"
+                                              To="#FF73A9D8" />
+                            </Storyboard>
+                          </VisualState>
+                          <VisualState x:Name="Disabled">
+                            <Storyboard>
+                              <DoubleAnimation Duration="0"
+                                               Storyboard.TargetName="IconPath"
+                                               Storyboard.TargetProperty="(Path.Fill).(SolidColorBrush.Opacity)"
+                                               To=".2" />
+                            </Storyboard>
+                          </VisualState>
+                        </VisualStateGroup>
+                      </VisualStateManager.VisualStateGroups>
+
+                      <Rectangle Fill="#11E5EBF1"
+                                 Opacity="1"
+                                 Stretch="Fill" />
+                      <Grid>
+                        <Path x:Name="IconPath"
+                              Width="6"
+                              Height="10"
+                              Margin="3"
+                              HorizontalAlignment="Center"
+                              VerticalAlignment="Center"
+                              Data="M282.875,231.875 L282.875,240.375 L288.625,236 z"
+                              Fill="#FF7B7878"
+                              Stretch="Fill" />
+                      </Grid>
+                    </Grid>
+                  </ControlTemplate>
+
+                  <ControlTemplate x:Key="CloseButtonTemplate"
+                                   TargetType="Button">
+                    <Grid Cursor="Hand">
+                      <VisualStateManager.VisualStateGroups>
+                        <VisualStateGroup x:Name="CommonStates">
+                          <VisualState x:Name="Normal" />
+                          <VisualState x:Name="MouseOver">
+                            <Storyboard>
+                              <ColorAnimation Duration="0"
+                                              Storyboard.TargetName="IconPath"
+                                              Storyboard.TargetProperty="(Path.Fill).(SolidColorBrush.Color)"
+                                              To="#FF73A9D8" />
+                              <ColorAnimation Duration="0"
+                                              Storyboard.TargetName="IconPath"
+                                              Storyboard.TargetProperty="(Path.Stroke).(SolidColorBrush.Color)"
+                                              To="#FF73A9D8" />
+                            </Storyboard>
+                          </VisualState>
+                          <VisualState x:Name="Disabled">
+                            <Storyboard>
+                              <DoubleAnimation Duration="0"
+                                               Storyboard.TargetName="IconPath"
+                                               Storyboard.TargetProperty="(Path.Fill).(SolidColorBrush.Opacity)"
+                                               To=".2" />
+                            </Storyboard>
+                          </VisualState>
+                        </VisualStateGroup>
+                      </VisualStateManager.VisualStateGroups>
+
+                      <Rectangle Fill="#11E5EBF1"
+                                 Opacity="1"
+                                 Stretch="Fill" />
+                      <Grid>
+                        <Path x:Name="IconPath"
+                              Width="10"
+                              Height="10"
+                              Margin="5"
+                              HorizontalAlignment="Center"
+                              VerticalAlignment="Center"
+                              Data="F1M0,0L2,0 5,3 8,0 10,0 6,4 10,8 8,8 5,5 2,8 0,8 4,4 0,0z"
+                              Fill="#FF7B7878"
+                              Stretch="Fill"
+                              Stroke="#FF7B7878" />
+                      </Grid>
+                    </Grid>
+                  </ControlTemplate>
+
+                </Grid.Resources>
+
+                <Grid.Background>
+                  <LinearGradientBrush StartPoint="0.5,0"
+                                       EndPoint="0.5,1">
+                    <GradientStop Offset="0"
+                                  Color="#fff6bd" />
+                    <GradientStop Offset="1"
+                                  Color="#ffec82" />
+                  </LinearGradientBrush>
+                </Grid.Background>
+
+                <Grid.ColumnDefinitions>
+                  <ColumnDefinition Width="Auto" />
+                  <ColumnDefinition Width="100*" />
+                  <ColumnDefinition Width="Auto" />
+                  <ColumnDefinition Width="Auto" />
+                  <ColumnDefinition Width="Auto" />
+                  <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <TextBlock x:Name="TitleTextBlock"
+                           Margin="5"
+                           VerticalAlignment="Center"
+                           FontWeight="Bold"
+                           Text=""
+                           TextWrapping="NoWrap" />
+
+                <TextBlock x:Name="MessageTextBlock"
+                           Grid.Column="1"
+                           Margin="5"
+                           VerticalAlignment="Center"
+                           Text=""
+                           TextTrimming="WordEllipsis"
+                           TextWrapping="NoWrap" />
+
+                <Border x:Name="CountBorder"
+                        Grid.Column="2"
+                        Width="20"
+                        Height="20"
+                        BorderBrush="White"
+                        BorderThickness="2"
+                        CornerRadius="10">
+                  <Border.Background>
+                    <LinearGradientBrush StartPoint="0.5,0"
+                                         EndPoint="0.5,1">
+                      <GradientStop Color="#FFFFA3A3" />
+                      <GradientStop Offset="1"
+                                    Color="Red" />
+                    </LinearGradientBrush>
+                  </Border.Background>
+                  <TextBlock x:Name="CountTextBlock"
+                             HorizontalAlignment="Center"
+                             VerticalAlignment="Center"
+                             FontFamily="Arial Black"
+                             FontSize="12"
+                             Foreground="White"
+                             Text="" />
+                </Border>
+
+                <Button x:Name="PreviousButton"
+                        Grid.Column="3"
+                        Width="20"
+                        Height="20"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Command="{TemplateBinding PreviousCommand}"
+                        CommandParameter="{TemplateBinding CurrentIndex}"
+                        IsTabStop="False"
+                        Template="{StaticResource PreviousButtonTemplate}"
+                        Visibility="Visible" />
+
+                <Button x:Name="NextButton"
+                        Grid.Column="4"
+                        Width="20"
+                        Height="20"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Command="{TemplateBinding NextCommand}"
+                        CommandParameter="{TemplateBinding CurrentIndex}"
+                        IsTabStop="False"
+                        Template="{StaticResource NextButtonTemplate}"
+                        Visibility="Visible" />
+
+                <Button x:Name="CloseButton"
+                        Grid.Column="5"
+                        Width="20"
+                        Height="20"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Command="{TemplateBinding CloseCommand}"
+                        CommandParameter="{TemplateBinding CurrentItem}"
+                        IsTabStop="False"
+                        Template="{StaticResource CloseButtonTemplate}"
+                        Visibility="Visible" />
+              </Grid>
+            </Border>
+            <Popup x:Name="DetailPopup">
+              <Border x:Name="DetailPopupBorder"
+                      Height="Auto"
+                      MaxHeight="200"
+                      HorizontalAlignment="Stretch"
+                      Background="#ffec82"
+                      BorderBrush="#b4a555"
+                      BorderThickness="1">
+                <ScrollViewer x:Name="ScrollViewer"
+                              Background="#fff6bd"
+                              BorderThickness="0"
+                              HorizontalScrollBarVisibility="Auto"
+                              Padding="1"
+                              VerticalScrollBarVisibility="Auto">
+                  <TextBlock x:Name="DetailTextBlock"
+                             Margin="5"
+                             HorizontalAlignment="Left"
+                             VerticalAlignment="Top"
+                             Text=""
+                             TextWrapping="Wrap" />
+                </ScrollViewer>
+              </Border>
+            </Popup>
+          </StackPanel>
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+  </Style>
+
+  <Style TargetType="local:GroupBox">
+    <Setter Property="BorderBrush"
+            Value="DarkGray" />
+    <Setter Property="BorderThickness"
+            Value="1" />
+    <Setter Property="Padding"
+            Value="6" />
+    <Setter Property="Template">
+      <Setter.Value>
+        <ControlTemplate TargetType="local:GroupBox">
+          <Grid Background="{TemplateBinding Background}">
+            <Grid.RowDefinitions>
+              <RowDefinition Height="Auto" />
+              <RowDefinition Height="Auto" />
+              <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Border BorderThickness="{TemplateBinding BorderThickness}"
+                    Grid.Row="1"
+                    Grid.RowSpan="2"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    CornerRadius="3">
+              <Border.Clip>
+                <GeometryGroup FillRule="EvenOdd">
+                  <RectangleGeometry x:Name="BodyRectangle"
+                                     Rect="0,0,300,200" />
+                  <RectangleGeometry x:Name="HeaderRectangle"
+                                     Rect="6,0,100,100" />
+                </GeometryGroup>
+              </Border.Clip>
+            </Border>
+            <ContentPresenter Grid.Row="2"
+                              ContentTemplate="{TemplateBinding ContentTemplate}"
+                              Content="{TemplateBinding Content}"
+                              Margin="{TemplateBinding Padding}" />
+            <ContentControl x:Name="HeaderContainer"
+                            Margin="6,0,0,0"
+                            Grid.Row="0"
+                            Grid.RowSpan="2"
+                            HorizontalAlignment="Left">
+              <ContentPresenter Margin="3,0,3,0"
+                                ContentTemplate="{TemplateBinding HeaderTemplate}"
+                                Content="{TemplateBinding Header}" />
+            </ContentControl>
+          </Grid>
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+  </Style>
+
+  <Style TargetType="local:PopupContent">
+    <Setter Property="Background"
+            Value="#FFF7F8FA" />
+    <Setter Property="Padding"
+            Value="3,0,3,0" />
+    <Setter Property="BorderThickness"
+            Value="1" />
+    <Setter Property="BorderBrush">
+      <Setter.Value>
+        <LinearGradientBrush EndPoint="0.5,1"
+                             StartPoint="0.5,0">
+          <GradientStop Color="#FFA3AEB9"
+                        Offset="0" />
+          <GradientStop Color="#FF8399A9"
+                        Offset="0.375" />
+          <GradientStop Color="#FF718597"
+                        Offset="0.375" />
+          <GradientStop Color="#FF617584"
+                        Offset="1" />
+        </LinearGradientBrush>
+      </Setter.Value>
+    </Setter>
+
+    <Setter Property="Template">
+      <Setter.Value>
+        <ControlTemplate TargetType="local:PopupContent">
+          <Grid>
+            <ContentPresenter x:Name="ContentRoot"
+                              Content="{TemplateBinding Content}"
+                              ContentTemplate="{TemplateBinding ContentTemplate}"
+                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                              Margin="{TemplateBinding Padding}" />
+            <Popup x:Name="PopupElement">
+              <Border x:Name="PopupRoot"
+                      CornerRadius="2"
+                      BorderThickness="{TemplateBinding BorderThickness}"
+                      Background="#FFFFFFFF"
+                      BorderBrush="{TemplateBinding BorderBrush}">
+                <Border BorderBrush="#FFFFFFFF"
+                        BorderThickness="1"
+                        CornerRadius="1"
+                        Background="{TemplateBinding Background}"
+                        Padding="{TemplateBinding Padding}">
+                  <ContentPresenter Content="{TemplateBinding Popup}"
+                                    ContentTemplate="{TemplateBinding PopupTemplate}"
+                                    Cursor="{TemplateBinding Cursor}"
+                                    Margin="{TemplateBinding Padding}" />
+                </Border>
+              </Border>
+            </Popup>
+          </Grid>
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+  </Style>
+
+</ResourceDictionary>

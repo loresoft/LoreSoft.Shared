@@ -1,0 +1,210 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{11DE5F21-0B55-4952-8EEF-92978131740A}</ProjectGuid>
+    <ProjectTypeGuids>{A1591282-1198-4647-A2B1-27E5FF5F6F3B};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LoreSoft.Shared.Tests</RootNamespace>
+    <AssemblyName>LoreSoft.Shared.Silverlight.Tests</AssemblyName>
+    <TargetFrameworkIdentifier>Silverlight</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
+    <SilverlightApplication>true</SilverlightApplication>
+    <SupportedCultures />
+    <XapOutputs>true</XapOutputs>
+    <GenerateSilverlightManifest>true</GenerateSilverlightManifest>
+    <XapFilename>LoreSoft.Shared.Silverlight.Tests.xap</XapFilename>
+    <SilverlightManifestTemplate>Properties\AppManifest.xml</SilverlightManifestTemplate>
+    <SilverlightAppEntry>LoreSoft.Shared.Silverlight.Tests.App</SilverlightAppEntry>
+    <TestPageFileName>TestPage.html</TestPageFileName>
+    <CreateTestPage>true</CreateTestPage>
+    <ValidateXaml>true</ValidateXaml>
+    <EnableOutOfBrowser>false</EnableOutOfBrowser>
+    <OutOfBrowserSettingsFile>Properties\OutOfBrowserSettings.xml</OutOfBrowserSettingsFile>
+    <UsePlatformExtensions>false</UsePlatformExtensions>
+    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+    <LinkedServerProject />
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <!--
+  //
+  // Silverlight Code Coverage Instrumentation
+  // List any libraries or assemblies that you would like to instrument during
+  // a code coverage pass. An example, for ClassLibrary1, is provided, and
+  // commented out below as a starting point:
+  //
+  -->
+  <!--
+  <ItemGroup>
+    <InstrumentSilverlightAssemblies Include="SilverlightClassLibrary1">
+      <Visible>false</Visible>
+    </InstrumentSilverlightAssemblies>
+  </ItemGroup>
+  -->
+  <!-- This property group is only here to support building this project using the 
+       MSBuild 3.5 toolset. In order to work correctly with this older toolset, it needs 
+       to set the TargetFrameworkVersion to v3.5 -->
+  <PropertyGroup Condition="'$(MSBuildToolsVersion)' == '3.5'">
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Expression.Interactions, Version=4.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Silverlight.Testing">
+      <HintPath>$(MSBuildExtensionsPath)\..\Microsoft SDKs\Silverlight\v4.0\Toolkit\Apr10\Testing\Microsoft.Silverlight.Testing.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTesting.Silverlight">
+      <HintPath>$(MSBuildExtensionsPath)\..\Microsoft SDKs\Silverlight\v4.0\Toolkit\Apr10\Testing\Microsoft.VisualStudio.QualityTools.UnitTesting.Silverlight.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations, Version=2.0.5.0, Culture=neutral, PublicKeyToken=ddd0da4d3e678217, processorArchitecture=MSIL" />
+    <Reference Include="System.Numerics, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Windows" />
+    <Reference Include="mscorlib" />
+    <Reference Include="system" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Windows.Controls, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Data, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Input, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Navigation, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Interactivity, Version=4.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Windows.Browser" />
+    <Reference Include="System.Xml.Serialization, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\LoreSoft.Shared.Tests\Caching\CacheItemTest.cs">
+      <Link>Caching\CacheItemTest.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared.Tests\Caching\CacheManagerTest.cs">
+      <Link>Caching\CacheManagerTest.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared.Tests\CollectionChangedTracker.cs">
+      <Link>CollectionChangedTracker.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared.Tests\Commands\RelayCommandTests.cs">
+      <Link>Commands\RelayCommandTests.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared.Tests\ComponentModel\ErrorsContainerTest.cs">
+      <Link>ComponentModel\ErrorsContainerTest.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared.Tests\ComponentModel\NotificationBaseTest.cs">
+      <Link>ComponentModel\NotificationBaseTest.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared.Tests\ComponentModel\ValidationBaseTest.cs">
+      <Link>ComponentModel\ValidationBaseTest.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared.Tests\ConfigurationDictionaryTest.cs">
+      <Link>ConfigurationDictionaryTest.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared.Tests\ExceptionAssert.cs">
+      <Link>ExceptionAssert.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared.Tests\Extensions\DateTimeTests.cs">
+      <Link>Extensions\DateTimeTests.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared.Tests\Extensions\StringExtensionsTest.cs">
+      <Link>Extensions\StringExtensionsTest.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared.Tests\Extensions\TimeSpanTests.cs">
+      <Link>Extensions\TimeSpanTests.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared.Tests\IO\PathHelperTests.cs">
+      <Link>IO\PathHelperTests.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared.Tests\Messaging\MessengerTests.cs">
+      <Link>Messaging\MessengerTests.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared.Tests\PropertyChangeTracker.cs">
+      <Link>PropertyChangeTracker.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared.Tests\Reflection\AccessWrapperTest.cs">
+      <Link>Reflection\AccessWrapperTest.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared.Tests\Reflection\DelegateFactoryTest.cs">
+      <Link>Reflection\DelegateFactoryTest.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared.Tests\Reflection\ReflectionHelperTest.cs">
+      <Link>Reflection\ReflectionHelperTest.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared.Tests\Security\PasswordGeneratorTest.cs">
+      <Link>Security\PasswordGeneratorTest.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared.Tests\Security\SaltedHashBuilderTest.cs">
+      <Link>Security\SaltedHashBuilderTest.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared.Tests\ShortGuidTest.cs">
+      <Link>ShortGuidTest.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared.Tests\Text\BaseConvertTest.cs">
+      <Link>Text\BaseConvertTest.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared.Tests\Text\NameFormatterTest.cs">
+      <Link>Text\NameFormatterTest.cs</Link>
+    </Compile>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\AppManifest.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LoreSoft.Shared.Silverlight\LoreSoft.Shared.Silverlight.csproj">
+      <Project>{EC5B57D8-0F16-4262-A146-E66444361607}</Project>
+      <Name>LoreSoft.Shared.Silverlight</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
+  <Import Condition="$(SilverlightVersion)=='v3.0'" Project="$(Registry:HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\SilverlightToolkit\Tools\v3.0)Microsoft.Silverlight.Toolkit.Build.targets" />
+  <Import Condition="$(SilverlightVersion)=='v4.0'" Project="$(Registry:HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\SilverlightToolkit\Tools\v4.0)Microsoft.Silverlight.Toolkit.Build.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{A1591282-1198-4647-A2B1-27E5FF5F6F3B}">
+        <SilverlightProjectProperties />
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

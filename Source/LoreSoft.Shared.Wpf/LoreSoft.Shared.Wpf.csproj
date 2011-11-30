@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F0DA618E-5DA1-46F4-8C1D-242D8FB3CD11}</ProjectGuid>
+    <OutputType>library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LoreSoft.Shared</RootNamespace>
+    <AssemblyName>LoreSoft.Shared.Wpf</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Windows.Controls.Input.Toolkit, Version=3.5.40128.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Command\RelayCommand.cs" />
+    <Compile Include="Command\RelayCommandGeneric.cs" />
+    <Compile Include="Controls\BindingEvaluator.cs" />
+    <Compile Include="Controls\BindingUpdateBehavior.cs" />
+    <Compile Include="Controls\BooleanColorConverter.cs" />
+    <Compile Include="Controls\DataGridColumnMetadata.cs" />
+    <Compile Include="Controls\DataGridColumnsBehavior.cs" />
+    <Compile Include="Controls\DataGridMetadata.cs" />
+    <Compile Include="Controls\DataGridMetadataBehavior.cs" />
+    <Compile Include="Controls\DataGridSelectedItemsBehavior.cs" />
+    <Compile Include="Controls\DataGridSynchronizeColumnsBehavior.cs" />
+    <Compile Include="Controls\DisposeDataContextBehaviour.cs" />
+    <Compile Include="Controls\EnumBooleanConverter.cs" />
+    <Compile Include="Controls\EnumItemConverter.cs" />
+    <Compile Include="Controls\EnumItemListConverter.cs" />
+    <Compile Include="Controls\EnumVisibilityConverter.cs" />
+    <Compile Include="Controls\FilterBehavior.cs" />
+    <Compile Include="Controls\GridSplitterMetadataBehavior.cs" />
+    <Compile Include="Controls\IWindow.cs" />
+    <Compile Include="Controls\IWindowViewModel.cs" />
+    <Compile Include="Controls\LabelBehaviour.cs" />
+    <Compile Include="Controls\ListBoxBehavior.cs" />
+    <Compile Include="Controls\Notification.cs" />
+    <Compile Include="Controls\NotificationManager.cs" />
+    <Compile Include="Controls\Notifications.cs" />
+    <Compile Include="Controls\NumericConverter.cs" />
+    <Compile Include="Controls\NumericTextBox.cs" />
+    <Compile Include="Controls\PopupContent.cs" />
+    <Compile Include="Controls\RotateBehavior.cs" />
+    <Compile Include="Controls\RotateContentControl.cs" />
+    <Compile Include="Controls\TrimmingToolTipBehavior.cs" />
+    <Compile Include="Controls\VisibilityConverter.cs" />
+    <Compile Include="Controls\WeakEventListener.cs" />
+    <Compile Include="Controls\Window.cs" />
+    <Compile Include="Controls\WindowMetadataBehavior.cs" />
+    <Compile Include="Controls\YesNoConverter.cs" />
+    <Compile Include="DragDrop\DefaultDragHandler.cs" />
+    <Compile Include="DragDrop\DefaultDropHandler.cs" />
+    <Compile Include="DragDrop\DragAdorner.cs" />
+    <Compile Include="DragDrop\DragDrop.cs" />
+    <Compile Include="DragDrop\DragInfo.cs" />
+    <Compile Include="DragDrop\DropInfo.cs" />
+    <Compile Include="DragDrop\DropTargetAdorner.cs" />
+    <Compile Include="DragDrop\DropTargetAdorners.cs" />
+    <Compile Include="DragDrop\DropTargetHighlightAdorner.cs" />
+    <Compile Include="DragDrop\DropTargetInsertionAdorner.cs" />
+    <Compile Include="DragDrop\IDragInfo.cs" />
+    <Compile Include="DragDrop\IDragSource.cs" />
+    <Compile Include="DragDrop\IDropInfo.cs" />
+    <Compile Include="DragDrop\IDropTarget.cs" />
+    <Compile Include="DragDrop\ItemsControlExtensions.cs" />
+    <Compile Include="DragDrop\TypeUtilities.cs" />
+    <Compile Include="Extensions\DispatcherExtensions.cs" />
+    <Compile Include="Extensions\VisualTreeExtensions.cs" />
+    <Compile Include="Interop\NativeMethods.cs" />
+    <Compile Include="Interop\POINT.cs" />
+    <Compile Include="Interop\RECT.cs" />
+    <Compile Include="Interop\WINDOWPLACEMENT.cs" />
+    <Compile Include="Messaging\DialogMessage.cs" />
+    <Compile Include="Messaging\MessageAction.cs" />
+    <Compile Include="Messaging\MessageSubscriber.cs" />
+    <Compile Include="Messaging\NotificationMessage.cs" />
+    <Compile Include="Messaging\WindowMessage.cs" />
+    <Compile Include="Navigation\INavigationService.cs" />
+    <Compile Include="Navigation\NavigationService.cs" />
+    <Compile Include="Navigation\NavigationServiceBehavior.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Services\ServiceBase.cs" />
+    <Compile Include="Threading\DisplayContext.cs" />
+    <Compile Include="Windows\Application.cs" />
+    <Compile Include="Windows\ApplicationServiceContext.cs" />
+    <Compile Include="Windows\IApplicationLifetimeAware.cs" />
+    <Compile Include="Windows\IApplicationService.cs" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\LoreSoft.Shared\LoreSoft.Shared.csproj">
+      <Project>{E910A170-601B-4E86-B70C-04E3B408DD4A}</Project>
+      <Name>LoreSoft.Shared</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Themes\generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

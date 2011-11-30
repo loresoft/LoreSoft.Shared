@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E910A170-601B-4E86-B70C-04E3B408DD4A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LoreSoft.Shared</RootNamespace>
+    <AssemblyName>LoreSoft.Shared</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Caching\CacheItem.cs" />
+    <Compile Include="Caching\CacheManager.cs" />
+    <Compile Include="Caching\CachePolicy.cs" />
+    <Compile Include="Collections\MultiDictionary.cs" />
+    <Compile Include="Collections\ObservableList.cs" />
+    <Compile Include="Collections\PagedList.cs" />
+    <Compile Include="Collections\PagingExtensions.cs" />
+    <Compile Include="Collections\WeakCollection.cs" />
+    <Compile Include="Collections\WeakDictionary.cs" />
+    <Compile Include="ComponentModel\DataAnnotations\CompareAttribute.cs" />
+    <Compile Include="ComponentModel\DataAnnotations\CreditCardAttribute.cs" />
+    <Compile Include="ComponentModel\DataAnnotations\EmailAddressAttribute.cs" />
+    <Compile Include="ComponentModel\DataAnnotations\EmailAddressValidator.cs" />
+    <Compile Include="ComponentModel\DataAnnotations\PhoneNumberAttribute.cs" />
+    <Compile Include="ComponentModel\DisposableBase.cs" />
+    <Compile Include="ComponentModel\ErrorsContainer.cs" />
+    <Compile Include="ComponentModel\NotificationBase.cs" />
+    <Compile Include="ComponentModel\PipelineActionBase.cs" />
+    <Compile Include="ComponentModel\PipelineBase.cs" />
+    <Compile Include="ComponentModel\PipelineContextBase.cs" />
+    <Compile Include="ComponentModel\SingletonBase.cs" />
+    <Compile Include="ComponentModel\TokenBase.cs" />
+    <Compile Include="ComponentModel\ValidationBase.cs" />
+    <Compile Include="Configuration\ConfigurationDictionary.cs" />
+    <Compile Include="Configuration\DynamicSettings.cs" />
+    <Compile Include="Diagnostics\ILogEvent.cs" />
+    <Compile Include="Diagnostics\ILogger.cs" />
+    <Compile Include="Diagnostics\Logger.cs" />
+    <Compile Include="Diagnostics\LogLevel.cs" />
+    <Compile Include="EnumItem.cs" />
+    <Compile Include="Extensions\CollectionExtensions.cs" />
+    <Compile Include="Extensions\DateTimeExtensions.cs" />
+    <Compile Include="Extensions\DictionaryExtensions.cs" />
+    <Compile Include="Extensions\EnumerableExtensions.cs" />
+    <Compile Include="Extensions\EnumExtensions.cs" />
+    <Compile Include="Extensions\ExceptionExtensions.cs" />
+    <Compile Include="Extensions\GuidExtensions.cs" />
+    <Compile Include="Extensions\HashExtensions.cs" />
+    <Compile Include="Extensions\NumberExtensions.cs" />
+    <Compile Include="Extensions\QueryableExtensions.cs" />
+    <Compile Include="Extensions\StringExtensions.cs" />
+    <Compile Include="Extensions\TaskExtensions.cs" />
+    <Compile Include="Extensions\TimeSpanExtensions.cs" />
+    <Compile Include="Extensions\TypeExtensions.cs" />
+    <Compile Include="IO\PathHelper.cs" />
+    <Compile Include="IO\StringEncodedWriter.cs" />
+    <Compile Include="Messaging\GenericMessage.cs" />
+    <Compile Include="Messaging\IMessenger.cs" />
+    <Compile Include="Messaging\Message.cs" />
+    <Compile Include="Messaging\Messenger.cs" />
+    <Compile Include="Messaging\PropertyChangedMessage.cs" />
+    <Compile Include="Messaging\Subscription.cs" />
+    <Compile Include="Messaging\SubscriptionToken.cs" />
+    <Compile Include="Messaging\WeakAction.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reflection\DelegateFactory.cs" />
+    <Compile Include="Reflection\DynamicProxy.cs" />
+    <Compile Include="Reflection\FieldAccessor.cs" />
+    <Compile Include="Reflection\ILGeneratorExtensions.cs" />
+    <Compile Include="Reflection\IMemberAccessor.cs" />
+    <Compile Include="Reflection\IMemberInfo.cs" />
+    <Compile Include="Reflection\IMethodAccessor.cs" />
+    <Compile Include="Reflection\LateBinder.cs" />
+    <Compile Include="Reflection\MemberAccessor.cs" />
+    <Compile Include="Reflection\MethodAccessor.cs" />
+    <Compile Include="Reflection\ObjectCloner.cs" />
+    <Compile Include="Reflection\ObjectCopier.cs" />
+    <Compile Include="Reflection\PropertyAccessor.cs" />
+    <Compile Include="Reflection\ReflectionHelper.cs" />
+    <Compile Include="Reflection\TypeAccessor.cs" />
+    <Compile Include="Security\Encryptor.cs" />
+    <Compile Include="Security\HashBuilder.cs" />
+    <Compile Include="Security\PasswordGenerator.cs" />
+    <Compile Include="Security\SaltedHashBuilder.cs" />
+    <Compile Include="ShortGuid.cs" />
+    <Compile Include="Text\BaseConvert.cs" />
+    <Compile Include="Text\NameFormatter.cs" />
+    <Compile Include="Threading\BusyMonitor.cs" />
+    <Compile Include="Threading\DelayedAction.cs" />
+    <Compile Include="Threading\Synchronized.cs" />
+    <Compile Include="UriParsingHelper.cs" />
+    <Compile Include="UriQuery.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

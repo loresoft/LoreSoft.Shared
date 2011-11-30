@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoreSoft.Shared.Tests", "LoreSoft.Shared.Tests\LoreSoft.Shared.Tests.csproj", "{83713701-E57E-4A2E-968A-CE7B0FD7A8FB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{710C02A6-9B4F-49CA-9A35-2BDB7E15C817}"
+	ProjectSection(SolutionItems) = preProject
+		Local.testsettings = Local.testsettings
+		LoreSoft.Shared.vsmdi = LoreSoft.Shared.vsmdi
+		LoreSoft.Shared1.vsmdi = LoreSoft.Shared1.vsmdi
+		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoreSoft.Shared", "LoreSoft.Shared\LoreSoft.Shared.csproj", "{E910A170-601B-4E86-B70C-04E3B408DD4A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoreSoft.Shared.Wpf", "LoreSoft.Shared.Wpf\LoreSoft.Shared.Wpf.csproj", "{F0DA618E-5DA1-46F4-8C1D-242D8FB3CD11}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoreSoft.Shared.Silverlight", "LoreSoft.Shared.Silverlight\LoreSoft.Shared.Silverlight.csproj", "{EC5B57D8-0F16-4262-A146-E66444361607}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoreSoft.Shared.Silverlight.Tests", "LoreSoft.Shared.Silverlight.Tests\LoreSoft.Shared.Silverlight.Tests.csproj", "{11DE5F21-0B55-4952-8EEF-92978131740A}"
+EndProject
+Global
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = LoreSoft.Shared1.vsmdi
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{83713701-E57E-4A2E-968A-CE7B0FD7A8FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83713701-E57E-4A2E-968A-CE7B0FD7A8FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83713701-E57E-4A2E-968A-CE7B0FD7A8FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83713701-E57E-4A2E-968A-CE7B0FD7A8FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E910A170-601B-4E86-B70C-04E3B408DD4A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E910A170-601B-4E86-B70C-04E3B408DD4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E910A170-601B-4E86-B70C-04E3B408DD4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E910A170-601B-4E86-B70C-04E3B408DD4A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F0DA618E-5DA1-46F4-8C1D-242D8FB3CD11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F0DA618E-5DA1-46F4-8C1D-242D8FB3CD11}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F0DA618E-5DA1-46F4-8C1D-242D8FB3CD11}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F0DA618E-5DA1-46F4-8C1D-242D8FB3CD11}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC5B57D8-0F16-4262-A146-E66444361607}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC5B57D8-0F16-4262-A146-E66444361607}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC5B57D8-0F16-4262-A146-E66444361607}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC5B57D8-0F16-4262-A146-E66444361607}.Release|Any CPU.Build.0 = Release|Any CPU
+		{11DE5F21-0B55-4952-8EEF-92978131740A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11DE5F21-0B55-4952-8EEF-92978131740A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11DE5F21-0B55-4952-8EEF-92978131740A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11DE5F21-0B55-4952-8EEF-92978131740A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

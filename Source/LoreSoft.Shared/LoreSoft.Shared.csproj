@@ -76,6 +76,7 @@
     <Compile Include="ComponentModel\ValidationBase.cs" />
     <Compile Include="Configuration\ConfigurationDictionary.cs" />
     <Compile Include="Configuration\DynamicSettings.cs" />
+    <Compile Include="Data\SafeDataReader.cs" />
     <Compile Include="Diagnostics\ILogEvent.cs" />
     <Compile Include="Diagnostics\ILogger.cs" />
     <Compile Include="Diagnostics\Logger.cs" />

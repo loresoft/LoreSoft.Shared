@@ -152,11 +152,11 @@
     <Compile Include="..\LoreSoft.Shared.Tests\PropertyChangeTracker.cs">
       <Link>PropertyChangeTracker.cs</Link>
     </Compile>
-    <Compile Include="..\LoreSoft.Shared.Tests\Reflection\AccessWrapperTest.cs">
-      <Link>Reflection\AccessWrapperTest.cs</Link>
-    </Compile>
     <Compile Include="..\LoreSoft.Shared.Tests\Reflection\DelegateFactoryTest.cs">
       <Link>Reflection\DelegateFactoryTest.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared.Tests\Reflection\DynamicProxyTest.cs">
+      <Link>Reflection\DynamicProxyTest.cs</Link>
     </Compile>
     <Compile Include="..\LoreSoft.Shared.Tests\Reflection\ReflectionHelperTest.cs">
       <Link>Reflection\ReflectionHelperTest.cs</Link>

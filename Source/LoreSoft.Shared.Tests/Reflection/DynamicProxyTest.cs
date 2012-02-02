@@ -8,13 +8,13 @@ using LoreSoft.Shared.Reflection;
 namespace LoreSoft.Shared.Tests.Reflection
 {
   [TestClass]
-  public class AccessWrapperTest
+  public class DynamicProxyTest
   {
     [TestMethod]
     public void TestMethod()
     {
       var t = new TestWrapper();
-      dynamic w = new AccessProxy(t);
+      dynamic w = new DynamicProxy(t);
 
       string r = w.Name;
       Assert.AreEqual("Test", r);
@@ -43,7 +43,7 @@ namespace LoreSoft.Shared.Tests.Reflection
     public void TestMethodNulls()
     {
       var t = new TestWrapper();
-      dynamic w = new AccessProxy(t);
+      dynamic w = new DynamicProxy(t);
 
       string r = w.EchoInternal(null);
       Assert.AreEqual("Internal: ", r);

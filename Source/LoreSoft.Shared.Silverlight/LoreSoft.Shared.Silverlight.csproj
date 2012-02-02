@@ -229,11 +229,11 @@
     <Compile Include="..\LoreSoft.Shared\Messaging\WeakAction.cs">
       <Link>Messaging\WeakAction.cs</Link>
     </Compile>
-    <Compile Include="..\LoreSoft.Shared\Reflection\AccessProxy.cs">
-      <Link>Reflection\AccessProxy.cs</Link>
-    </Compile>
     <Compile Include="..\LoreSoft.Shared\Reflection\DelegateFactory.cs">
       <Link>Reflection\DelegateFactory.cs</Link>
+    </Compile>
+    <Compile Include="..\LoreSoft.Shared\Reflection\DynamicProxy.cs">
+      <Link>Reflection\DynamicProxy.cs</Link>
     </Compile>
     <Compile Include="..\LoreSoft.Shared\Reflection\FieldAccessor.cs">
       <Link>Reflection\FieldAccessor.cs</Link>

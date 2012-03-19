@@ -41,6 +41,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Numerics" />
     <Reference Include="System.Runtime.Serialization" />
@@ -51,6 +52,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusinessDay.cs" />
+    <Compile Include="BusinessWeek.cs" />
     <Compile Include="Caching\CacheItem.cs" />
     <Compile Include="Caching\CacheManager.cs" />
     <Compile Include="Caching\CachePolicy.cs" />
@@ -122,6 +125,30 @@
     <Compile Include="Reflection\PropertyAccessor.cs" />
     <Compile Include="Reflection\ReflectionHelper.cs" />
     <Compile Include="Reflection\TypeAccessor.cs" />
+    <Compile Include="Scheduler\DefaultJobLockProvider.cs" />
+    <Compile Include="Scheduler\IJob.cs" />
+    <Compile Include="Scheduler\IJobConfiguration.cs" />
+    <Compile Include="Scheduler\JobRunner.cs" />
+    <Compile Include="Scheduler\JobAction.cs" />
+    <Compile Include="Scheduler\JobBase.cs" />
+    <Compile Include="Scheduler\JobCollection.cs" />
+    <Compile Include="Scheduler\JobCompletedEventArgs.cs" />
+    <Compile Include="Scheduler\JobConfiguration.cs" />
+    <Compile Include="Scheduler\JobContext.cs" />
+    <Compile Include="Scheduler\Configuration\JobElement.cs" />
+    <Compile Include="Scheduler\Configuration\JobElementCollection.cs" />
+    <Compile Include="Scheduler\JobEventArgs.cs" />
+    <Compile Include="Scheduler\JobHistoryProvider.cs" />
+    <Compile Include="Scheduler\JobLock.cs" />
+    <Compile Include="Scheduler\JobLockProvider.cs" />
+    <Compile Include="Scheduler\JobLockProviderCollection.cs" />
+    <Compile Include="Scheduler\JobManager.cs" />
+    <Compile Include="Scheduler\Configuration\JobManagerSection.cs" />
+    <Compile Include="Scheduler\JobProvider.cs" />
+    <Compile Include="Scheduler\JobProviderCollection.cs" />
+    <Compile Include="Scheduler\JobResult.cs" />
+    <Compile Include="Scheduler\JobStatus.cs" />
+    <Compile Include="Scheduler\StaticLockProvider.cs" />
     <Compile Include="Security\Encryptor.cs" />
     <Compile Include="Security\HashBuilder.cs" />
     <Compile Include="Security\PasswordGenerator.cs" />

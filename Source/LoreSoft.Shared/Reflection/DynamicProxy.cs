@@ -5,10 +5,26 @@ using System.Reflection;
 
 namespace LoreSoft.Shared.Reflection
 {
+    public interface IDynamicProxy
+    {
+        /// <summary>
+        /// Gets the object where access is wrapped from.
+        /// </summary>
+        object Wrapped { get; }
+
+        /// <summary>
+        /// Gets or sets a value indicating whether to return null when name is not found.
+        /// </summary>
+        /// <value>
+        ///   <c>true</c> to return null when name not found; otherwise, <c>false</c> to throw an exception.
+        /// </value>
+        bool SafeMode { get; set; }
+    }
+
     /// <summary>
     /// A class used to wrap an object as a <see cref="T:System.Dynamic.DynamicObject"/> allowing access to internal and private members.
     /// </summary>
-    public class DynamicProxy : DynamicObject
+    public class DynamicProxy : DynamicObject, IDynamicProxy
     {
         private readonly object _wrapped;
         private readonly TypeAccessor _typeAccessor;

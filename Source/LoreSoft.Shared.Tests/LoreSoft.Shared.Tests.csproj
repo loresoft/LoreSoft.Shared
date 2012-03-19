@@ -41,6 +41,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoPoco, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoPocoBeta.1.2.0\lib\AutoPoco.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="PresentationCore" />
@@ -55,6 +58,7 @@
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Numerics" />
     <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web" />
     <Reference Include="System.XML" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="WindowsBase" />
@@ -74,6 +78,13 @@
     <Compile Include="ComponentModel\NotificationBaseTest.cs" />
     <Compile Include="ComponentModel\ValidationBaseTest.cs" />
     <Compile Include="ConfigurationDictionaryTest.cs" />
+    <Compile Include="Entities\Audit.cs" />
+    <Compile Include="Entities\Priority.cs" />
+    <Compile Include="Entities\Role.cs" />
+    <Compile Include="Entities\Status.cs" />
+    <Compile Include="Entities\Task.cs" />
+    <Compile Include="Entities\TaskExtended.cs" />
+    <Compile Include="Entities\User.cs" />
     <Compile Include="ExceptionAssert.cs" />
     <Compile Include="Extensions\DateTimeTests.cs" />
     <Compile Include="Extensions\StringExtensionsTest.cs" />
@@ -84,6 +95,8 @@
     <Compile Include="PropertyChangeTracker.cs" />
     <Compile Include="Reflection\DynamicProxyTest.cs" />
     <Compile Include="Reflection\DelegateFactoryTest.cs" />
+    <Compile Include="Reflection\ObjectClonerTest.cs" />
+    <Compile Include="Reflection\ObjectCopierTest.cs" />
     <Compile Include="Reflection\ReflectionHelperTest.cs" />
     <Compile Include="Scheduler\JobManagerSectionTests.cs" />
     <Compile Include="Scheduler\JobManagerTest.cs" />
@@ -112,6 +125,9 @@
       <Project>{F0DA618E-5DA1-46F4-8C1D-242D8FB3CD11}</Project>
       <Name>LoreSoft.Shared.Wpf</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
